@@ -1,23 +1,13 @@
-#include <iostream>
-#include <set>
-#include <vector>
-#include "EntidadOrganizativa.hpp"
-#include "Manager.hpp"
-#include "Empresa.hpp"
+#include <CentralRegional.hpp>
 
-using namespace std;
-
-class CentralRegional: public EntidadOrganizativa {
-    public:
-        set<string> paises;
-        int getCantEmpleados;
-        vector<string> getEmpNames();
-        vector<GerenteAlto> getGerentesAlto(); //Max 5
-        vector<GerenteMedio> getGerenteMedio(); //Max 20
+vector<string> CentralRegional::getEmpNames() {
     
-    private:
-        int cantEmpleados;
-        vector<GerenteAlto> gerentesAlto; //Max 5
-        vector<GerenteMedio> gerentesMedio; // Max 20
-        set<Empresa> empresas;
-};
+}
+
+vector<GerenteAlto> CentralRegional::getGerentesAlto() {
+    return gerentesAlto;
+}
+
+vector<GerenteMedio> CentralRegional::getGerenteMedio() {
+    return gerentesMedio;
+}
