@@ -5,12 +5,8 @@ using namespace std;
 
 class Armas {
     public:
-        virtual bool pintar(string) = 0;
-        virtual void usar() = 0;
-        virtual void a() = 0;
-
-    protected:
-        string name;
-        int puntosDanio;
-        string color;
+        virtual void utilizar() = 0;
+        virtual int getDanio() = 0;
+        virtual string getNombre() = 0;
+        virtual void mostrarDesc() = 0;
 };
