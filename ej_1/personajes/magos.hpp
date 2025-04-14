@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include <vector>
 #include "personajes.hpp"
 #include "../armas/armas.hpp"
 
@@ -8,25 +9,44 @@ using namespace std;
 
 class Magos: public Personajes {
     public:
+        int getHp() override;
+        string getNombre() override;
+        bool setHp(int newHp) override;
+        bool estaVivo() override;
+        void atacar() override;
+        void defender() override;
 
     protected:
-        int hp = 100;
-        unique_ptr<Armas> arma;
+        int hp;
+        string nombre;
+        vector<unique_ptr<Armas>> armas;
     
 };
 
 class Hechicero: public Magos {
-    Hechicero(int hp);
+    Hechicero() {
+        nombre = "";
+        hp = 100;
+    }
 };
 
 class Conjurador: public Magos {
-
+    Conjurador() {
+        nombre = "";
+        hp = 100;
+    }
 };
 
 class Brujo: public Magos {
-
+    Brujo() {
+        nombre = "";
+        hp = 100;
+    }
 };
 
 class Nigromante: public Magos {
-
+    Nigromante() {
+        nombre = "";
+        hp = 100;
+    }
 };

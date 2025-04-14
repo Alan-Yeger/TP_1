@@ -62,7 +62,7 @@ class Amuleto: public ItemsMagicos {
     public:
         Amuleto() {
             nombre = "Amuleto del Herrero";
-            puntosDanio = 3; 
+            puntosDanio = 10; 
             tipo = "Divino";
             ataqueEspecial = "Bendición de Hierro";
         };
