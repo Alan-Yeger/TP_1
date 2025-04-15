@@ -17,3 +17,7 @@ bool Magos::setHp(int newHp) {
 bool Magos::estaVivo() {
     return (hp > 0);
 }
+
+void Magos::agregarArma(unique_ptr<Armas>& new_arma) {
+    armas.push_back(new_arma);
+}

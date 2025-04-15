@@ -15,6 +15,7 @@ class Magos: public Personajes {
         bool estaVivo() override;
         void atacar() override;
         void defender() override;
+        void agregarArma(unique_ptr<Armas>&) override; 
 
     protected:
         int hp;

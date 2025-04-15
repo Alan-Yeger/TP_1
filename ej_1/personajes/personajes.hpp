@@ -13,4 +13,5 @@ class Personajes {
         virtual bool estaVivo() = 0;
         virtual void atacar() = 0;
         virtual void defender() = 0;
+        virtual void agregarArma(unique_ptr<Armas>&) = 0;
 };
