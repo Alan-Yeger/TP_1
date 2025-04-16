@@ -17,6 +17,10 @@ void ArmasCombate::mostrarDesc() {
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
 
+void ArmasCombate::mejorar() {
+    // No hace nada, porque es abstracta pero lo necesito para que no tire error
+}
+
 void HachaSimple::mejorar() {
     if (estaMejorada) return;
     nombre = "Hacha de Tyr";

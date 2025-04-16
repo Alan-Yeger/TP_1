@@ -16,7 +16,12 @@ void ItemsMagicos::mostrarDesc() {
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
 
-void Baston::activarMagia() {
+void ItemsMagicos::mejorar() {
+    // No hace nada, porque es abstracta pero lo necesito para que no tire error
+}
+
+
+void Baston::mejorar() {
     if (esMagico) return;
     nombre = "Bastón Rúnico";
     puntosDanio = 15; 
@@ -37,7 +42,7 @@ void Baston::mostrarDesc() {
     }
 }
 
-void LibroDeHechizos::activarMagia() {
+void LibroDeHechizos::mejorar() {
     if (esMagico) return;
     nombre = "Grimorio de Hécate";
     tipo = "Hechicería Olímpica";
@@ -57,7 +62,7 @@ void LibroDeHechizos::mostrarDesc() {
     }
 }
 
-void Pocion::activarMagia() {
+void Pocion::mejorar() {
     if (esMagico) return;
     nombre = "Poción de ambrosía";
     regeneracion = 10;
@@ -79,7 +84,7 @@ void Pocion::mostrarDesc() {
     }
 }
 
-void Amuleto::activarMagia() {
+void Amuleto::mejorar() {
     if (esMagico) return;
     nombre = "Amuleto de Hefesto";
     tipo = "Reliquia Forjada";

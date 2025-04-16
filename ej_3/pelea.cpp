@@ -103,6 +103,30 @@ int main() {
     cout << "\nJugador 1 eligió: " << personaje << " con " << arma << endl;
     cout << "Jugador 2 fue asignado aleatoriamente: " << personaje2 << " con " << arma2 << endl;
     
+    int mejoraArma;
+    cout << "\n Desea mejorar las armas? \n"
+         << "1. SI\n"
+         << "2. NO\n";
+    cin >> mejoraArma;
+    
+    if (mejoraArma == 1) {
+        jugador_1->mejorarArma();
+        jugador_2->mejorarArma();
+
+        cout << "\nArma mejorada del jugador 1:\n";
+        jugador_1->getArmaDesc();
+        cout << "\nArma mejorada del jugador 2:\n";
+        jugador_2->getArmaDesc();
+        cout << "\n";
+    }
+    else if (mejoraArma == 2) {
+        cout << "\nArma NO mejorada del jugador 1:\n";
+        jugador_1->getArmaDesc();
+        cout << "\nArma NO mejorada del jugador 2:\n";
+        jugador_2->getArmaDesc();
+        cout << "\n";
+    }    
+
     //Combate
     while(jugador_1->getHp() && jugador_2->getHp()) {
         cout << "El jugador 1 tiene " << jugador_1->getHp() << "HP mientras que Jugador 2 tiene " << jugador_2->getHp() << "HP\n";
@@ -119,12 +143,12 @@ int main() {
             cout << "Ningún jugador recibe daño\n";
         }
         else if ((ataque1 % 3) + 1 == ataque2) {
-            jugador_2->setHp(jugador_2->getHp() - 10);
-            cout << jugador_1->getNombre() << " ataca con: " << jugador_1->getArma() << " y hace 10 puntos de daño.\n";
+            jugador_2->setHp(jugador_2->getHp() - jugador_1->getDanio());
+            cout << jugador_1->getNombre() << " ataca con: " << jugador_1->getArma() << " y hace " << jugador_1->getDanio() << " puntos de daño.\n";
         }
         else if ((ataque2 % 3) + 1 == ataque1) {
-            jugador_1->setHp(jugador_1->getHp() - 10);
-            cout << jugador_2->getNombre() << " ataca con: " << jugador_2->getArma() << " y hace 10 puntos de daño.\n";
+            jugador_1->setHp(jugador_1->getHp() - jugador_2->getDanio());
+            cout << jugador_2->getNombre() << " ataca con: " << jugador_2->getArma() << " y hace " << jugador_2->getDanio() << " puntos de daño.\n";
         }
 
         if(!jugador_1->estaVivo()) cout << "Jugador 1 perdió.\n";

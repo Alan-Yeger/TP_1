@@ -10,7 +10,7 @@ class ArmasCombate: public Armas {
         int getDanio() override;
         string getNombre() override;
         void mostrarDesc() override;
-        virtual void mejorar() = 0;
+        void mejorar() override;
 
     protected:
         string nombre;

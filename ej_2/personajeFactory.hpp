@@ -9,7 +9,4 @@ class PersonajeFactory {
         static unique_ptr<Personajes> crearPersonaje(string personaje);
         static unique_ptr<Armas> crearArma(string arma);
         static unique_ptr<Personajes> crearPersonajeArmado(string personaje, vector<string>& armas);
-
-    private:
-
 };

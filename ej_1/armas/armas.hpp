@@ -9,4 +9,5 @@ class Armas {
         virtual int getDanio() = 0;
         virtual string getNombre() = 0;
         virtual void mostrarDesc() = 0;
+        virtual void mejorar() = 0;
 };

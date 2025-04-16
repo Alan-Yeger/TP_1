@@ -10,7 +10,7 @@ class ItemsMagicos: public Armas {
         int getDanio() override;
         string getNombre() override;
         void mostrarDesc() override;
-        virtual void activarMagia() = 0;
+        void mejorar() override;
 
     protected:
         string nombre;
@@ -28,7 +28,7 @@ class Baston: public ItemsMagicos {
             tipo = "Comestible";
             ataqueEspecial = "Proyectil de Queso Fundido";
         };
-        void activarMagia();
+        void mejorar();
         void mostrarDesc();
 };
 
@@ -40,7 +40,7 @@ class LibroDeHechizos: public ItemsMagicos {
             tipo = "Arcano";
             ataqueEspecial = "Encantamiento Fugaz";
         };
-        void activarMagia();
+        void mejorar();
         void mostrarDesc();
 };
 
@@ -52,7 +52,7 @@ class Pocion: public ItemsMagicos {
             tipo = "Alquimia";
             ataqueEspecial = "Curación";
         };
-        void activarMagia();
+        void mejorar();
         void mostrarDesc();
     private:
         int regeneracion = 5;
@@ -66,6 +66,6 @@ class Amuleto: public ItemsMagicos {
             tipo = "Divino";
             ataqueEspecial = "Bendición de Hierro";
         };
-        void activarMagia();
+        void mejorar();
         void mostrarDesc();
 };  

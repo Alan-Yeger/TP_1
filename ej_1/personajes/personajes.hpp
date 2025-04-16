@@ -14,4 +14,7 @@ class Personajes {
         virtual bool setHp(int newHp) = 0;
         virtual bool estaVivo() = 0;
         virtual void agregarArma(unique_ptr<Armas>&) = 0;
+        virtual void mejorarArma() = 0;
+        virtual void getArmaDesc() = 0;
+        virtual int getDanio() = 0;
 };

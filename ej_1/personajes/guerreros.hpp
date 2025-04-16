@@ -14,6 +14,9 @@ class Guerreros: public Personajes {
         string getArma() override;
         bool setHp(int newHp) override;
         bool estaVivo() override;
+        void mejorarArma() override;
+        void getArmaDesc() override;
+        int getDanio() override;
         void agregarArma(unique_ptr<Armas>&) override;
     
     protected:

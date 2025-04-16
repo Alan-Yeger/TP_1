@@ -25,3 +25,18 @@ bool Magos::estaVivo() {
 void Magos::agregarArma(unique_ptr<Armas>& new_arma) {
     armas.push_back(move(new_arma));
 }
+
+void Magos::mejorarArma() {
+    if (armas.size() == 0) return;
+    armas[0]->mejorar();
+}
+
+void Magos::getArmaDesc() {
+    if (armas.size() == 0) return;
+    armas[0]->mostrarDesc();
+}
+
+int Magos::getDanio() {
+    if (armas.size() == 0) return 0;
+    return armas[0]->getDanio();
+}
