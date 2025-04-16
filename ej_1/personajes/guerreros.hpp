@@ -11,10 +11,9 @@ class Guerreros: public Personajes {
     public:
         int getHp() override;
         string getNombre() override;
+        string getArma() override;
         bool setHp(int newHp) override;
         bool estaVivo() override;
-        void atacar() override;
-        void defender() override;
         void agregarArma(unique_ptr<Armas>&) override;
     
     protected:
@@ -26,39 +25,44 @@ class Guerreros: public Personajes {
 class Barbaro: public Guerreros {
     public:
         Barbaro() {
-            nombre = "";
+            nombre = "Barbaro";
             hp = 100;
+            vector<unique_ptr<Armas>> armas;
         }
 };
 
 class Paladin: public Guerreros {
     public:
         Paladin() {
-            nombre = "";
+            nombre = "Paladin";
             hp = 100;
+            vector<unique_ptr<Armas>> armas;
         }
 };
 
 class Caballero: public Guerreros {
     public:
         Caballero() {
-            nombre = "";
+            nombre = "Caballero";
             hp = 100;
+            vector<unique_ptr<Armas>> armas;
         }
 };
 
 class Mercenario: public Guerreros {
     public:
         Mercenario() {
-            nombre = "";
+            nombre = "Mercenario";
             hp = 100;
+            vector<unique_ptr<Armas>> armas;
         }
 };
 
 class Gladiador: public Guerreros {
     public:
         Gladiador() {
-            nombre = "";
+            nombre = "Gladiador";
             hp = 100;
+            vector<unique_ptr<Armas>> armas;
         }
 };

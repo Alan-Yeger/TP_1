@@ -8,9 +8,13 @@ string Guerreros::getNombre() {
     return nombre;
 }
 
+string Guerreros::getArma() {
+    if (armas.size() == 0) return "No hay armas";
+    return armas[0]->getNombre();
+}
+
 bool Guerreros::setHp(int newHp) {
-    if (newHp < 0) return false;
-    hp = newHp;
+    hp = newHp < 0 ? 0 : newHp;
     return true;
 }
 
@@ -19,5 +23,5 @@ bool Guerreros::estaVivo() {
 }
 
 void Guerreros::agregarArma(unique_ptr<Armas>& new_arma) {
-    armas.push_back(new_arma);
+    armas.push_back(move(new_arma));
 }

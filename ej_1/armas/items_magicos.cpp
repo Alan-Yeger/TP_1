@@ -12,6 +12,10 @@ string ItemsMagicos::getNombre() {
     return nombre;
 }
 
+void ItemsMagicos::mostrarDesc() {
+    // No hace nada, porque es abstracta pero lo necesito para que no tire error
+}
+
 void Baston::activarMagia() {
     if (esMagico) return;
     nombre = "Bastón Rúnico";

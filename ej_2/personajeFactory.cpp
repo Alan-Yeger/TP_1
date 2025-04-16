@@ -5,7 +5,7 @@
 #include "../ej_1/armas/items_magicos.hpp"
 
 unique_ptr<Personajes> PersonajeFactory::crearPersonaje(string personaje) {
-    if (personaje == "barbaro") {
+    if (personaje == "Barbaro") {
         return make_unique<Barbaro>();
     } else if (personaje == "Paladin") {
         return make_unique<Paladin>();

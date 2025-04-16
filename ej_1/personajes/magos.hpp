@@ -11,10 +11,9 @@ class Magos: public Personajes {
     public:
         int getHp() override;
         string getNombre() override;
+        string getArma() override;
         bool setHp(int newHp) override;
         bool estaVivo() override;
-        void atacar() override;
-        void defender() override;
         void agregarArma(unique_ptr<Armas>&) override; 
 
     protected:
@@ -25,29 +24,37 @@ class Magos: public Personajes {
 };
 
 class Hechicero: public Magos {
-    Hechicero() {
-        nombre = "";
-        hp = 100;
-    }
+    public:
+        Hechicero() {
+            nombre = "Hechicero";
+            hp = 100;
+            vector<unique_ptr<Armas>> armas;
+        }
 };
 
 class Conjurador: public Magos {
-    Conjurador() {
-        nombre = "";
-        hp = 100;
-    }
+    public:
+        Conjurador() {
+            nombre = "Conjurador";
+            hp = 100;
+            vector<unique_ptr<Armas>> armas;
+        }
 };
 
 class Brujo: public Magos {
-    Brujo() {
-        nombre = "";
-        hp = 100;
-    }
+    public:
+        Brujo() {
+            nombre = "Brujo";
+            hp = 100;
+            vector<unique_ptr<Armas>> armas;
+        }
 };
 
 class Nigromante: public Magos {
-    Nigromante() {
-        nombre = "";
-        hp = 100;
-    }
+    public:
+        Nigromante() {
+            nombre = "Nigromante";
+            hp = 100;
+            vector<unique_ptr<Armas>> armas;
+        }
 };
