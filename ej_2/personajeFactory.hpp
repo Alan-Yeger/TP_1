@@ -1,4 +1,9 @@
 #include "../ej_1/personajes/personajes.hpp"
+#include "../ej_1/personajes/guerreros.hpp"
+#include "../ej_1/personajes/magos.hpp"
+#include "../ej_1/armas/armas.hpp"
+#include "../ej_1/armas/armas_combate.hpp"
+#include "../ej_1/armas/items_magicos.hpp"
 #include <memory>
 #include <vector>
 

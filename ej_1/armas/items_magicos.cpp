@@ -20,6 +20,11 @@ void ItemsMagicos::mejorar() {
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
 
+int ItemsMagicos::regenerarVida() {
+    return 0;
+    // No hace nada, porque es abstracta pero lo necesito para que no tire error
+}
+
 
 void Baston::mejorar() {
     if (esMagico) return;
@@ -65,7 +70,8 @@ void LibroDeHechizos::mostrarDesc() {
 void Pocion::mejorar() {
     if (esMagico) return;
     nombre = "Poción de ambrosía";
-    regeneracion = 10;
+    puntosDanio = 5;
+    regeneracion = 11;
     tipo = "Elixir Sagrado";
     ataqueEspecial = "Bendición de Asclepio";
     esMagico = true;
@@ -84,6 +90,10 @@ void Pocion::mostrarDesc() {
     }
 }
 
+int Pocion::regenerarVida() {
+    return regeneracion;
+}
+
 void Amuleto::mejorar() {
     if (esMagico) return;
     nombre = "Amuleto de Hefesto";
@@ -95,7 +105,7 @@ void Amuleto::mejorar() {
 
 void Amuleto::mostrarDesc() {
     if (esMagico) {
-        cout << "Al activar el *Amuleto de Hefesto*, un retumbar metálico sacude el aire, como si mil yunques golpearan al unísono.\n";
+        cout << "Al activar el Amuleto de Hefesto, un retumbar metálico sacude el aire, como si mil yunques golpearan al unísono.\n";
         cout << "Forjado en el corazón del Etna por manos inmortales, este talismán resplandece con las llamas eternas del dios herrero.\n";
         cout << "Desde el Olimpo desciende su bendición: cada golpe que des será imbuido con la fuerza de los titanes encadenados,\n";
         cout << "y el hierro en tus manos responderá con un eco divino.\n";

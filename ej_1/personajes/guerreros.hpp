@@ -17,11 +17,16 @@ class Guerreros: public Personajes {
         void mejorarArma() override;
         void getArmaDesc() override;
         int getDanio() override;
+        int getRegeneracion() override;
         void agregarArma(unique_ptr<Armas>&) override;
+        virtual void alaridoDeGuerra() = 0;
+        virtual void presentarse();
     
     protected:
         int hp;
         string nombre;
+        string clan;
+        string grito;
         vector<unique_ptr<Armas>> armas;
 };
 
@@ -30,8 +35,9 @@ class Barbaro: public Guerreros {
         Barbaro() {
             nombre = "Barbaro";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            clan = "Montaraces del Norte";
         }
+        void alaridoDeGuerra();
 };
 
 class Paladin: public Guerreros {
@@ -39,8 +45,9 @@ class Paladin: public Guerreros {
         Paladin() {
             nombre = "Paladin";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            clan = "Orden de la Luz Dorada";
         }
+        void alaridoDeGuerra();
 };
 
 class Caballero: public Guerreros {
@@ -48,8 +55,9 @@ class Caballero: public Guerreros {
         Caballero() {
             nombre = "Caballero";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            clan = "Templarios del Reino";
         }
+        void alaridoDeGuerra();
 };
 
 class Mercenario: public Guerreros {
@@ -57,8 +65,9 @@ class Mercenario: public Guerreros {
         Mercenario() {
             nombre = "Mercenario";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            clan = "Lobos de Acero";
         }
+        void alaridoDeGuerra();
 };
 
 class Gladiador: public Guerreros {
@@ -66,6 +75,7 @@ class Gladiador: public Guerreros {
         Gladiador() {
             nombre = "Gladiador";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            clan = "Arena de Sangre";
         }
+        void alaridoDeGuerra();
 };

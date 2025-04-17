@@ -10,7 +10,9 @@ string Magos::getNombre() {
 
 string Magos::getArma() {
     if (armas.size() == 0) return "No hay armas";
-    return armas[0]->getNombre();
+    else if (armas.size() == 1) return armas[0]->getNombre();
+    else if (armas.size() == 2) return (armas[0]->getNombre() + " y " + armas[1]->getNombre());
+    return "Demasiadas armas";
 }
 
 bool Magos::setHp(int newHp) {
@@ -39,4 +41,13 @@ void Magos::getArmaDesc() {
 int Magos::getDanio() {
     if (armas.size() == 0) return 0;
     return armas[0]->getDanio();
+}
+
+int Magos::getRegeneracion() {
+    if (armas.size() == 0) return 0;
+    return armas[0]->regenerarVida();
+}
+
+void Magos::usarTruco() {
+    cout << nombre << " de " << escuelaMagia << " usa su hechizo favorito: " << trucoFavorito << "!" << endl;
 }

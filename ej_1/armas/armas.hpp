@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -10,4 +10,5 @@ class Armas {
         virtual string getNombre() = 0;
         virtual void mostrarDesc() = 0;
         virtual void mejorar() = 0;
+        virtual int regenerarVida() = 0;
 };

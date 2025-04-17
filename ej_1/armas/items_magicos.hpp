@@ -11,6 +11,7 @@ class ItemsMagicos: public Armas {
         string getNombre() override;
         void mostrarDesc() override;
         void mejorar() override;
+        int regenerarVida() override; 
 
     protected:
         string nombre;
@@ -47,13 +48,14 @@ class LibroDeHechizos: public ItemsMagicos {
 class Pocion: public ItemsMagicos {
     public:
         Pocion() {
-            nombre = "Pocion de Regeneración";
-            puntosDanio = 0; 
+            nombre = "Poción de Regeneración";
+            puntosDanio = 2; 
             tipo = "Alquimia";
             ataqueEspecial = "Curación";
         };
         void mejorar();
         void mostrarDesc();
+        int regenerarVida();
     private:
         int regeneracion = 5;
 };

@@ -18,9 +18,14 @@ class Magos: public Personajes {
         void mejorarArma() override;
         void getArmaDesc() override;
         int getDanio() override;
+        int getRegeneracion() override;
+        void usarTruco();
+        
     protected:
         int hp;
         string nombre;
+        string escuelaMagia;
+        string trucoFavorito;
         vector<unique_ptr<Armas>> armas;
     
 };
@@ -30,7 +35,8 @@ class Hechicero: public Magos {
         Hechicero() {
             nombre = "Hechicero";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            escuelaMagia = "Gryffindor"; //Un poquito de temática Harry Potter
+            trucoFavorito = "Expelliarmus";
         }
 };
 
@@ -39,7 +45,8 @@ class Conjurador: public Magos {
         Conjurador() {
             nombre = "Conjurador";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            escuelaMagia = "Ravenclaw";
+            trucoFavorito = "Accio";
         }
 };
 
@@ -48,7 +55,8 @@ class Brujo: public Magos {
         Brujo() {
             nombre = "Brujo";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            escuelaMagia = "Hufflepuff";
+            trucoFavorito = "Lumos Maxima";
         }
 };
 
@@ -57,6 +65,7 @@ class Nigromante: public Magos {
         Nigromante() {
             nombre = "Nigromante";
             hp = 100;
-            vector<unique_ptr<Armas>> armas;
+            escuelaMagia = "Slytherin";
+            trucoFavorito = "Avada Kedavra";
         }
 };

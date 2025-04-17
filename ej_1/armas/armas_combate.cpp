@@ -2,7 +2,7 @@
 
 
 void ArmasCombate::utilizar() {
-    cout << "Se utilizó: " << nombre << "con su ataque: " << ataqueEspecial << "\n";
+    cout << "Se utilizó: " << nombre << " con su ataque: " << ataqueEspecial << "\n";
 }
 
 int ArmasCombate::getDanio() {
@@ -13,18 +13,15 @@ string ArmasCombate::getNombre() {
     return nombre;
 }
 
-void ArmasCombate::mostrarDesc() {
-    // No hace nada, porque es abstracta pero lo necesito para que no tire error
-}
-
-void ArmasCombate::mejorar() {
-    // No hace nada, porque es abstracta pero lo necesito para que no tire error
-}
+// No hacen nada, porque es abstracta pero lo necesito para que no tire error
+void ArmasCombate::mostrarDesc() {}
+void ArmasCombate::mejorar() {}
+int ArmasCombate::regenerarVida() { return 0; }
 
 void HachaSimple::mejorar() {
     if (estaMejorada) return;
     nombre = "Hacha de Tyr";
-    puntosDanio *= 1.1;
+    puntosDanio *=  1.1;
     ataqueEspecial = "Fuerza de la justicia";
     estaMejorada = true;
 }

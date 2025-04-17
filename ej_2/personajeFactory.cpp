@@ -1,8 +1,5 @@
 #include "personajeFactory.hpp"
-#include "../ej_1/personajes/guerreros.hpp"
-#include "../ej_1/personajes/magos.hpp"
-#include "../ej_1/armas/armas_combate.hpp"
-#include "../ej_1/armas/items_magicos.hpp"
+#include "../ej_1/personajes/personajes.hpp"
 
 unique_ptr<Personajes> PersonajeFactory::crearPersonaje(string personaje) {
     if (personaje == "Barbaro") {

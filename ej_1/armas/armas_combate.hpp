@@ -11,6 +11,7 @@ class ArmasCombate: public Armas {
         string getNombre() override;
         void mostrarDesc() override;
         void mejorar() override;
+        int regenerarVida() override;
 
     protected:
         string nombre;
