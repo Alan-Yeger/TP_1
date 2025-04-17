@@ -1,14 +1,16 @@
 #include "armas_combate.hpp"
 
-
+// Método para utilizar el arma, muestra el nombre y el ataque especial
 void ArmasCombate::utilizar() {
     cout << "Se utilizó: " << nombre << " con su ataque: " << ataqueEspecial << "\n";
 }
 
+//Devuelve el daño del arma
 int ArmasCombate::getDanio() {
     return puntosDanio;
 }
 
+//Devuelve el nombre del arma
 string ArmasCombate::getNombre() {
     return nombre;
 }
@@ -16,7 +18,11 @@ string ArmasCombate::getNombre() {
 // No hacen nada, porque es abstracta pero lo necesito para que no tire error
 void ArmasCombate::mostrarDesc() {}
 void ArmasCombate::mejorar() {}
-int ArmasCombate::regenerarVida() { return 0; }
+int ArmasCombate::getRegeneracionVida() { return 0; }
+
+
+//Métodos de las distintas armas
+//Cada subclase tiene su mejora y su descripción
 
 void HachaSimple::mejorar() {
     if (estaMejorada) return;

@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+Clase abstracta para todas las armas de combate. Hereda de Armas.
+Define comportamiento común y estructura básica para las armas de combate.
+Hace override a los métodos de Armas.
+*/
+
 class ArmasCombate: public Armas {
     public:
         void utilizar() override;
@@ -11,16 +17,19 @@ class ArmasCombate: public Armas {
         string getNombre() override;
         void mostrarDesc() override;
         void mejorar() override;
-        int regenerarVida() override;
+        int getRegeneracionVida() override;
 
     protected:
-        string nombre;
-        int puntosDanio;
-        string color;
-        string tipo;
-        string ataqueEspecial;
-        bool estaMejorada = false;
+        string nombre; // Nombre del arma
+        int puntosDanio; // Daño del arma
+        string color; // Color del arma
+        string tipo; // Tipo de arma
+        string ataqueEspecial; // Ataque especial del arma
+        bool estaMejorada = false; // Indica si el arma está mejorada
 };
+
+//Clases derivadas de las armas de combate
+//Cada una tiene su propia implementacion de mejorar() y mostrarDesc()
 
 class HachaSimple: public ArmasCombate {
     public:

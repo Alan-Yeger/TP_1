@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Devuelve el nombre del personaje según el número de opción elegido
 string strPersonaje(int opcion) {
     switch (opcion) {
         case 1:
@@ -31,6 +32,7 @@ string strPersonaje(int opcion) {
     }
 }
 
+// Devuelve el nombre del arma según el número de opción elegido
 string strArma(int opcion) {
     switch (opcion) {
         case 1:
@@ -57,9 +59,10 @@ string strArma(int opcion) {
 }
 
 int main() {
-    srand(time(nullptr));
+    srand(time(nullptr)); // Semilla para generación de números aleatorios
 
     int opcionPersonaje, opcionArma;
+    // Menú para elegir el personaje
     cout << "Elegí el personaje que más te guste (poné el numerito de la opción).\n"
          << "1. Bárbaro\n"
          << "2. Paladín\n"
@@ -72,6 +75,7 @@ int main() {
          << "9. Nigromante\n";
     cin >> opcionPersonaje;
 
+    // Menú para elegir el arma
     cout << "Ahora elegí el arma\n"
          << "1. Hacha Simple\n"
          << "2. Hacha Doble\n"
@@ -85,30 +89,37 @@ int main() {
     cin.ignore();
     cin >> opcionArma;
 
+    // Genera personaje y arma aleatorios para el oponente
     int personajeRandom = rand() % 9 + 1;
     int armaRandom = rand() % 9 + 1;
 
+    // Convierte números a nombres
     string personaje = strPersonaje(opcionPersonaje); 
     string arma = strArma(opcionArma);
-    
     string personaje2 = strPersonaje(personajeRandom);
     string arma2 = strArma(armaRandom);
 
+    // Creamos vectores de armas
     vector<string> armas = {arma};
     vector<string> armas2 = {arma2};
 
+    // Creamos personajes armados con PersonajeFactory
     unique_ptr<Personajes> jugador_1 = PersonajeFactory::crearPersonajeArmado(personaje, armas);
     unique_ptr<Personajes> jugador_2 = PersonajeFactory::crearPersonajeArmado(personaje2, armas2);
 
+    // Muestra la selección
     cout << "\nJugador 1 eligió: " << personaje << " con " << arma << endl;
     cout << "Jugador 2 fue asignado aleatoriamente: " << personaje2 << " con " << arma2 << endl;
     
+    // Pregunta si se desea mejorar las arma, esto hace que cada arma tenga un daño especial
+    // El único problema podría ocurrir si ambos jugadores pelean con la Poción de Ambrosía
+    // ya que podrían curarse interminable
     int mejoraArma;
     cout << "\n Desea mejorar las armas? \n"
          << "1. SI\n"
          << "2. NO\n";
     cin >> mejoraArma;
-    
+    // Pregunta si se desea mejorar las armas
     if (mejoraArma == 1) {
         jugador_1->mejorarArma();
         jugador_2->mejorarArma();
@@ -127,46 +138,64 @@ int main() {
         cout << "\n";
     }    
 
-    //Combate
-    while(jugador_1->getHp() && jugador_2->getHp()) {
-        cout << "El jugador 1 tiene " << jugador_1->getHp() << "HP mientras que Jugador 2 tiene " << jugador_2->getHp() << "HP\n";
 
+    //Combate hasta la muerte
+    while(jugador_1->getHp() && jugador_2->getHp()) {
+        //Si ambos jugadores tienen pociones no vale la pena pelear
+        if (jugador_1->getArma() == "Poción de ambrosía" && jugador_2->getArma() == "Poción de ambrosía") {
+            cout << "Como ambos jugadores tienen la Poción de Ambrosía son conscientes de que la pelea no va a llegar a ningún lado y deciden hacer las paces sin pelear\n";
+            break;
+        }
+
+        if (jugador_1->getArma() == "Poción de Regeneración" && jugador_2->getArma() == "Poción de Regeneración") {
+            cout << "Como ambos jugadores tienen la Poción de regeneración llegan a la conclusión de que el combate es absurdo, se dan un abrazo y cada uno para su casa.\n";
+            break;
+        }
+
+        cout << "El jugador 1 tiene " << jugador_1->getHp() << "HP mientras que Jugador 2 tiene " << jugador_2->getHp() << "HP\n";
         int ataque1, ataque2;
+        // Menú de ataques para el jugador
         cout << "Elegí tu ataque:\n"
              << "1. Golpe Fuerte\n"
              << "2. Golpe Rápido\n"
              << "3. Defensa y Golpe\n";
         cin >> ataque1;
+        // Ataque aleatorio del oponente
         ataque2 = rand() % 3 + 1;
 
+        // Empate: ambos ataques son iguales
         if (ataque1 == ataque2) {
             cout << "Ningún jugador recibe daño\n";
         }
+        // Jugador 1 gana esta ronda (piedra-papel-tijera)
         else if ((ataque1 % 3) + 1 == ataque2) {
+            // Si tiene una poción, se cura y daña
             if (jugador_1->getArma() == "Poción de Regeneración" || jugador_1->getArma() == "Poción de ambrosía") {
                 jugador_1->setHp(jugador_1->getHp() + jugador_1->getRegeneracion());
                 jugador_2->setHp(jugador_2->getHp() - jugador_1->getDanio());
                 cout << jugador_1->getNombre() << " utiliza: " << jugador_1->getArma() << " y regenera " << jugador_1->getRegeneracion() << " puntos de vida.\n";
                 cout << "También le lanza el frasco a su rival y le hace " << jugador_1->getDanio() << " puntos de daño.\n";
             }
-            else {
+            else { //Ataque normal
                 jugador_2->setHp(jugador_2->getHp() - jugador_1->getDanio());
                 cout << jugador_1->getNombre() << " ataca con: " << jugador_1->getArma() << " y hace " << jugador_1->getDanio() << " puntos de daño.\n";
             }
         }
+         // Jugador 2 gana esta ronda
         else if ((ataque2 % 3) + 1 == ataque1) {
+            // Si tiene una poción, se cura y daña
             if (jugador_2->getArma() == "Poción de Regeneración" || jugador_2->getArma() == "Poción de ambrosía") {
                 jugador_2->setHp(jugador_2->getHp() + jugador_2->getRegeneracion());
                 jugador_1->setHp(jugador_1->getHp() - jugador_2->getDanio());
                 cout << jugador_2->getNombre() << " utiliza: " << jugador_2->getArma() << " y regenera " << jugador_2->getRegeneracion() << " puntos de vida.\n";
                 cout << "También le lanza el frasco a su rival y le hace " << jugador_2->getDanio() << " puntos de daño.\n";
             }
-            else {
+            else { //Ataque normal
                 jugador_1->setHp(jugador_1->getHp() - jugador_2->getDanio());
                 cout << jugador_2->getNombre() << " ataca con: " << jugador_2->getArma() << " y hace " << jugador_2->getDanio() << " puntos de daño.\n";            }
             
         }
-
+        // Revisión de estado al final del turno
         if(!jugador_1->estaVivo()) cout << "Jugador 1 perdió.\n";
         else if (!jugador_2->estaVivo()) cout << "Jugador 2 perdió.\n";
 

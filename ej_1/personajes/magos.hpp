@@ -7,6 +7,12 @@
 
 using namespace std;
 
+/*
+Clase abstracta para todos los magos. Hereda de Personajes.
+Define comportamiento común y estructura básica para los magos.
+Hace override a los métodos de Personajes pero también tiene un método propio
+*/
+
 class Magos: public Personajes {
     public:
         int getHp() override;
@@ -19,16 +25,20 @@ class Magos: public Personajes {
         void getArmaDesc() override;
         int getDanio() override;
         int getRegeneracion() override;
+
+        // Método específico de los magos para usar un truco o hechizo
         void usarTruco();
         
     protected:
-        int hp;
-        string nombre;
-        string escuelaMagia;
-        string trucoFavorito;
-        vector<unique_ptr<Armas>> armas;
+        int hp;  // Puntos de vida del mago
+        string nombre;  // Nombre del mago
+        string escuelaMagia;  // Escuela de magia a la que pertenece el mago
+        string trucoFavorito;  // Truco o hechizo favorito del mago
+        vector<unique_ptr<Armas>> armas;  // Contenedor de armas equipadas al mago
     
 };
+
+// Subclases específicas de magos, cada una con su propio hechizo y escuela de magia
 
 class Hechicero: public Magos {
     public:

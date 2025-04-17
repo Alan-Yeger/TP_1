@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+Clase abstracta para todos los items mágicos. Hereda de Armas.
+Define comportamiento común y estructura básica para los items mágicos.
+Hace override a los métodos de Armas.
+*/
+
 class ItemsMagicos: public Armas {
     public:
         void utilizar() override;
@@ -11,15 +17,18 @@ class ItemsMagicos: public Armas {
         string getNombre() override;
         void mostrarDesc() override;
         void mejorar() override;
-        int regenerarVida() override; 
+        int getRegeneracionVida() override; 
 
     protected:
-        string nombre;
-        int puntosDanio;
-        string tipo;
-        string ataqueEspecial;
-        bool esMagico = false;
+        string nombre; // Nombre del arma
+        int puntosDanio; //Daño del arma
+        string tipo; //Tipo del arma
+        string ataqueEspecial; //Ataque especial del arma
+        bool esMagico = false; //Indica si el arma es Mágica
 };
+
+//Clases derivadas de los items mágicos
+//Cada uno tiene su propia implementacion de mejorar() y mostrarDesc()
 
 class Baston: public ItemsMagicos {
     public:
@@ -55,7 +64,7 @@ class Pocion: public ItemsMagicos {
         };
         void mejorar();
         void mostrarDesc();
-        int regenerarVida();
+        int getRegeneracionVida();
     private:
         int regeneracion = 5;
 };

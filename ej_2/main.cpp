@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Devuelve el nombre del Guerrero según la opción ingresada
 string strGuerrero(int opcion) {
     switch (opcion) {
         case 1:
@@ -21,6 +22,7 @@ string strGuerrero(int opcion) {
     }
 }
 
+// Devuelve el nombre del Mago según la opción ingresada
 string strMago(int opcion) {
     switch (opcion) {
         case 1:
@@ -36,6 +38,7 @@ string strMago(int opcion) {
     }
 }
 
+// Devuelve el nombre del arma según la opción ingresada
 string strArma(int opcion) {
     switch (opcion) {
         case 1:
@@ -63,8 +66,9 @@ string strArma(int opcion) {
 
 int main() {
     
-    srand(time(nullptr));
+    srand(time(nullptr)); // Inicializa la semilla aleatoria con la hora actual
 
+    // Genera dos números aleatorios de prueba y los muestra
     int num1 = 3 + rand() % 5; // 3 a 7
     int num2 = rand() % 3;     // 0 a 2
 
@@ -74,6 +78,7 @@ int main() {
     cout << "Apretá enter para seguir ";
     cin.get();
 
+    // Genera la cantidad de Magos y Guerreros (entre 3 y 7 cada uno)
     int cantidadMagos = 3 + rand() % 5;     // 3 a 7
     int cantidadGuerreros = 3 + rand() % 5; // 3 a 7
 

@@ -1,13 +1,16 @@
 #include "items_magicos.hpp"
 
+// Método para utilizar el arma, muestra el nombre y el ataque especial
 void ItemsMagicos::utilizar() {
     cout << "Se utilizó: " << nombre << "con su ataque: " << ataqueEspecial << "\n";
 }
 
+//Devuelve el daño del arma
 int ItemsMagicos::getDanio() {
     return puntosDanio;
 }
 
+//Devuelve el nombre del arma
 string ItemsMagicos::getNombre() {
     return nombre;
 }
@@ -15,16 +18,16 @@ string ItemsMagicos::getNombre() {
 void ItemsMagicos::mostrarDesc() {
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
-
 void ItemsMagicos::mejorar() {
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
-
-int ItemsMagicos::regenerarVida() {
+int ItemsMagicos::getRegeneracionVida() {
     return 0;
     // No hace nada, porque es abstracta pero lo necesito para que no tire error
 }
 
+//Métodos de los distintos items
+//Cada subclase tiene su mejora y su descripción
 
 void Baston::mejorar() {
     if (esMagico) return;
@@ -90,7 +93,7 @@ void Pocion::mostrarDesc() {
     }
 }
 
-int Pocion::regenerarVida() {
+int Pocion::getRegeneracionVida() {
     return regeneracion;
 }
 

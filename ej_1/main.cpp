@@ -129,7 +129,7 @@ int main() {
 
     hachaDoble->utilizar();
 
-    cout << "Regeneración de vida: " << hachaDoble->regenerarVida() << " ¿Por qué un hache te regeneraría vida? Eso dejáselo a la poción" << endl;
+    cout << "Regeneración de vida: " << hachaDoble->getRegeneracionVida() << " ¿Por qué un hache te regeneraría vida? Eso dejáselo a la poción" << endl;
 
 
     return 0;

@@ -9,6 +9,10 @@
 
 using namespace std;
 
+/* Fábrica de personajes y armas.
+Esta clase provee métodos estáticos para crear instancias de personajes,
+armas individuales y personajes equipados con un conjunto de armas. */
+
 class PersonajeFactory {
     public:
         static unique_ptr<Personajes> crearPersonaje(string personaje);

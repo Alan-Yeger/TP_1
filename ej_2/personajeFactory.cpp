@@ -1,6 +1,7 @@
 #include "personajeFactory.hpp"
 #include "../ej_1/personajes/personajes.hpp"
 
+// Crea un personaje según su nombre y devuelve un puntero único al objeto.
 unique_ptr<Personajes> PersonajeFactory::crearPersonaje(string personaje) {
     if (personaje == "Barbaro") {
         return make_unique<Barbaro>();
@@ -22,6 +23,8 @@ unique_ptr<Personajes> PersonajeFactory::crearPersonaje(string personaje) {
         return make_unique<Nigromante>();
     } else throw invalid_argument("Tipo de personaje desconocido\n");
 }
+
+// Crea un arma según su nombre y devuelve un puntero único al objeto.
 unique_ptr<Armas> PersonajeFactory::crearArma(string arma) {
     if (arma == "Hacha Simple") {
         return make_unique<HachaSimple>();
@@ -44,9 +47,12 @@ unique_ptr<Armas> PersonajeFactory::crearArma(string arma) {
     } else throw invalid_argument("Tipo de arma desconocido\n");
 }
 
+// Crea un personaje y le equipa una lista de armas.
 unique_ptr<Personajes> PersonajeFactory::crearPersonajeArmado(string personaje, vector<string>& armas) {
+    // Se crea el personaje base
     unique_ptr<Personajes> personajeArmado = crearPersonaje(personaje);
-
+    
+    // Se agregan las armas al personaje
     for (string arma: armas) {
         unique_ptr<Armas> new_arma = crearArma(arma);
         personajeArmado->agregarArma(new_arma);

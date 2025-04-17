@@ -7,6 +7,13 @@
 
 using namespace std;
 
+/*
+Clase abstracta para todos los guerreros. Hereda de Personajes.
+Define comportamiento común y estructura básica para los guerreros.
+Hace override a los métodos de Personajes pero también tiene su propio
+método virtual que deben implementar las clases derivadas.
+*/
+
 class Guerreros: public Personajes {
     public:
         int getHp() override;
@@ -19,16 +26,21 @@ class Guerreros: public Personajes {
         int getDanio() override;
         int getRegeneracion() override;
         void agregarArma(unique_ptr<Armas>&) override;
+
+        // Cada guerrero debe tener su propio grito de guerra
         virtual void alaridoDeGuerra() = 0;
+        // Implementación por defecto para presentarse
         virtual void presentarse();
     
     protected:
-        int hp;
-        string nombre;
-        string clan;
-        string grito;
-        vector<unique_ptr<Armas>> armas;
+        int hp; // Puntos de vida
+        string nombre; // Nombre del personaje
+        string clan;   // Nombre del clan al que pertenece
+        string grito;  // Frase de guerra
+        vector<unique_ptr<Armas>> armas; // Armas equipadas
 };
+
+// Clases concretas de guerreros, cada una con su clan y grito únicos
 
 class Barbaro: public Guerreros {
     public:
