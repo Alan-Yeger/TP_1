@@ -28,12 +28,15 @@ class Magos: public Personajes {
 
         // Método específico de los magos para usar un truco o hechizo
         void usarTruco();
+        //Destructor virtual
+        virtual ~Magos() = default;
         
     protected:
         int hp;  // Puntos de vida del mago
         string nombre;  // Nombre del mago
         string escuelaMagia;  // Escuela de magia a la que pertenece el mago
         string trucoFavorito;  // Truco o hechizo favorito del mago
+        string mascota; // Mascota del mago
         vector<unique_ptr<Armas>> armas;  // Contenedor de armas equipadas al mago
     
 };
@@ -47,6 +50,7 @@ class Hechicero: public Magos {
             hp = 100;
             escuelaMagia = "Gryffindor"; //Un poquito de temática Harry Potter
             trucoFavorito = "Expelliarmus";
+            mascota = "Búho";
         }
 };
 
@@ -57,6 +61,7 @@ class Conjurador: public Magos {
             hp = 100;
             escuelaMagia = "Ravenclaw";
             trucoFavorito = "Accio";
+            mascota = "Gato";
         }
 };
 
@@ -67,6 +72,7 @@ class Brujo: public Magos {
             hp = 100;
             escuelaMagia = "Hufflepuff";
             trucoFavorito = "Lumos Maxima";
+            mascota = "Rata";
         }
 };
 
@@ -77,5 +83,6 @@ class Nigromante: public Magos {
             hp = 100;
             escuelaMagia = "Slytherin";
             trucoFavorito = "Avada Kedavra";
+            mascota = "Serpiente";
         }
 };

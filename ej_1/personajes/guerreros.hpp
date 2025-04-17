@@ -31,12 +31,15 @@ class Guerreros: public Personajes {
         virtual void alaridoDeGuerra() = 0;
         // Implementación por defecto para presentarse
         virtual void presentarse();
+        //Destructor virtual
+        virtual ~Guerreros() = default;
     
     protected:
         int hp; // Puntos de vida
         string nombre; // Nombre del personaje
         string clan;   // Nombre del clan al que pertenece
         string grito;  // Frase de guerra
+        int cantidadBatallas; // Cantidad de batallas peleadas
         vector<unique_ptr<Armas>> armas; // Armas equipadas
 };
 
@@ -48,6 +51,7 @@ class Barbaro: public Guerreros {
             nombre = "Barbaro";
             hp = 100;
             clan = "Montaraces del Norte";
+            cantidadBatallas = 57;
         }
         void alaridoDeGuerra();
 };
@@ -58,6 +62,7 @@ class Paladin: public Guerreros {
             nombre = "Paladin";
             hp = 100;
             clan = "Orden de la Luz Dorada";
+            cantidadBatallas = 23;
         }
         void alaridoDeGuerra();
 };
@@ -68,6 +73,7 @@ class Caballero: public Guerreros {
             nombre = "Caballero";
             hp = 100;
             clan = "Templarios del Reino";
+            cantidadBatallas = 48;
         }
         void alaridoDeGuerra();
 };
@@ -78,6 +84,7 @@ class Mercenario: public Guerreros {
             nombre = "Mercenario";
             hp = 100;
             clan = "Lobos de Acero";
+            cantidadBatallas = 39;
         }
         void alaridoDeGuerra();
 };
@@ -88,6 +95,7 @@ class Gladiador: public Guerreros {
             nombre = "Gladiador";
             hp = 100;
             clan = "Arena de Sangre";
+            cantidadBatallas = 61;
         }
         void alaridoDeGuerra();
 };

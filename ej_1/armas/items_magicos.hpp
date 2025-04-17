@@ -17,7 +17,9 @@ class ItemsMagicos: public Armas {
         string getNombre() override;
         void mostrarDesc() override;
         void mejorar() override;
-        int getRegeneracionVida() override; 
+        int getRegeneracionVida() override;
+        //Destructor virtual
+        virtual ~ItemsMagicos() = default;
 
     protected:
         string nombre; // Nombre del arma

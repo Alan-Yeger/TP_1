@@ -18,6 +18,8 @@ class ArmasCombate: public Armas {
         void mostrarDesc() override;
         void mejorar() override;
         int getRegeneracionVida() override;
+        //Destructor virtual
+        virtual ~ArmasCombate() = default;
 
     protected:
         string nombre; // Nombre del arma
